@@ -1,28 +1,34 @@
 /*
- * Copyright Keates Creative Technology and/or its affiliates
- * and other contributors as indicated by the @author tags and
- * the COPYRIGHT.txt file distributed with this work.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  *
  *
- * FIleMaker JDBC types:
- *
+ * FIleMaker JDBC data types:
+ * 
  * NUMERIC, DECIMAL, INT, DATE, TIME, TIMESTAMP, VARCHAR, CHARACTER VARYING, BLOB, VARBINARY, LONGVARBINARY, or BINARY VARYING
- *
+ * 
+ * text         java.sql.Types.VARCHAR
+ * number       java.sql.Types.DOUBLE
+ * date         java.sql.Types.DATE
+ * time         java.sql.Types.TIME
+ * timestamp    java.sql.Types.TIMESTAMP
+ * container    java.sql.Types.BLOB
+ * calculation  (to the calculation result type)
+ * 
+ * 
  * Literals:
- *
+ * 
  * USER, USERNAME, CURRENT_USER, CURRENT_DATE, CURDATE, CURRENT_TIME, CURTIME, CURRENT_TIMESTAMP, CURTIMESTAMP, and NULL.
+ * 
+ * NOT SUPPORTED
+ * 
+ * SAVEPOINT statements
+ * retrieval of auto-generated keys
+ * passing parameters to a callable statement object by name 1 holdable cursors
+ * retrieving and updating the object referenced by a Ref object
+ * updating of columns containing CLOB, ARRAY, and REF data types 1 Boolean data type
+ * DATALINK data type
+ * transform groups and type mapping
+ * relationships between the JDBC SPI and the Connector architecture
+ * 
  *
  */
 
@@ -39,6 +45,8 @@ import java.sql.Types;
 
 @SuppressWarnings("deprecation")
 public class FileMakerDialect extends Dialect {
+
+
 
     private static final LimitHandler LIMIT_HANDLER = new AbstractLimitHandler() {
 
@@ -64,6 +72,7 @@ public class FileMakerDialect extends Dialect {
             return true;
         }
     };
+    
 
     public FileMakerDialect() {
 
@@ -95,13 +104,17 @@ public class FileMakerDialect extends Dialect {
     // limit/offset support ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     @Override
     public LimitHandler getLimitHandler() {
+        // set out custom handler defined above
         return LIMIT_HANDLER;
     }
 
     @Override
     public boolean dropConstraints() {
+        // We don't need to drop constraints before dropping tables, that just leads to error
+        // messages about missing tables when we don't have a schema in the database
         return false;
     }
+
 
     @Override
     public boolean hasAlterTable() {
@@ -127,6 +140,7 @@ public class FileMakerDialect extends Dialect {
     public boolean canCreateSchema() {
         return false;
     }
+
 
 
     // Current Timestamp support ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -175,30 +189,26 @@ public class FileMakerDialect extends Dialect {
     }
 
     // Locking support ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // TODO: check this
     @Override
     public String getForUpdateNowaitString() {
         return "";
     }
-    // TODO: check this
+
     @Override
     public String getForUpdateNowaitString(String aliases) {
         return "";
     }
 
-    // TODO: check this
     @Override
     public String getForUpdateString() {
         return " for update";
     }
 
-    // TODO: check this
     @Override
     public String getForUpdateString(LockMode lockMode) {
         return "";
     }
 
-    // TODO: fix this
     @Override
     public String getForUpdateString(String aliases) {
         return " for update of " + aliases;

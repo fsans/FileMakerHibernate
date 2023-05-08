@@ -6,7 +6,7 @@
 
     <groupId>nl.keates.filemaker.hibernate.dialect</groupId>
     <artifactId>FileMakerDialect</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.2</version>
     <dependencies>
         <dependency>
             <groupId>org.hibernate</groupId>
