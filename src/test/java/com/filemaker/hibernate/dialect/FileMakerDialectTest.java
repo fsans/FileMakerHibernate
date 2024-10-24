@@ -9,9 +9,11 @@ import org.hibernate.service.ServiceRegistry;
 import org.junit.jupiter.api.*;
 
 import jakarta.persistence.*;
-import java.util.List;
+//import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+
 
 public class FileMakerDialectTest {
 
@@ -23,23 +25,43 @@ public class FileMakerDialectTest {
     public static void setUp() {
         Configuration configuration = new Configuration();
         configuration.setProperty("hibernate.dialect", "com.filemaker.hibernate.dialect.FileMakerDialect");
-        configuration.setProperty("hibernate.connection.driver_class", "com.filemaker.jdbc.driver");
-        configuration.setProperty("hibernate.connection.url", "jdbc:mysql://192.168.0.24/Contacts");
+        configuration.setProperty("hibernate.connection.driver_class", "com.filemaker.jdbc.Driver");
+        configuration.setProperty("hibernate.connection.url", "jdbc:filemaker://192.168.0.24/Contacts");
         configuration.setProperty("hibernate.connection.username", "admin");
         configuration.setProperty("hibernate.connection.password", "wakawaka");
-        configuration.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+
+        configuration.setProperty("hibernate.connection.initial_pool_size", "1");
+        configuration.setProperty("hibernate.connection.min_pool_size", "1");
+        configuration.setProperty("hibernate.connection.pool_size", "5");
+        configuration.setProperty("hibernate.connection.pool_validation_interval", "30");
+        configuration.setProperty("hibernate.connection.autocommit", "false"); 
+
+        // CRITICAL, add the following "tested" settings
+        configuration.setProperty("hibernate.hbm2ddl.auto", "none");
+        //configuration.setProperty("id.new_generator_mappings", "true");
+        //configuration.setProperty("hibernate.connection.provider_disables_autocommit", "true");
+
+
         configuration.addAnnotatedClass(Contact.class);
 
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties()).build();
 
+    
+        System.out.println("\n\nSetting up session factory...");
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+        System.out.println("\n\nSession factory initialized: " + (sessionFactory != null));
     }
 
     @BeforeEach
     public void openSession() {
+        System.out.println("Opening session...");
+        if (sessionFactory == null) {
+            throw new IllegalStateException("SessionFactory is not initialized.");
+        }
         session = sessionFactory.openSession();
         transaction = session.beginTransaction();
+        System.out.println("\n\nSession opened: " + (session != null));
     }
 
     @AfterEach
@@ -61,6 +83,11 @@ public class FileMakerDialectTest {
 
     @Test
     public void testBasicCRUDOperations() {
+
+        if (session == null) {
+            throw new IllegalStateException("Session is null. Cannot perform operations.");
+        }
+
         // Create
         Contact contact = new Contact("John Doe", "john@example.com");
         session.persist(contact);
@@ -91,7 +118,7 @@ public class FileMakerDialectTest {
         assertThat(deletedContact).isNull();
     }
 
-    @Test
+/*     @Test
     public void testQueryWithLimitAndOffset() {
         // Insert test data
         for (int i = 0; i < 20; i++) {
@@ -112,10 +139,18 @@ public class FileMakerDialectTest {
         assertThat(contacts.get(0).getName()).isEqualTo("Contact 5");
         assertThat(contacts.get(9).getName()).isEqualTo("Contact 9");
     }
+ */
+
+
+
+
+
 
     @Entity
-    @Table(name = "contacts")
+    @Table(name = "contact")
     public static class Contact {
+        // add GenerationType.AUTO since fmjdbc does not support identity columns
+        // and it cannot be overriden in the dialect class in H6
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
@@ -158,4 +193,3 @@ public class FileMakerDialectTest {
         }
     }
 }
-

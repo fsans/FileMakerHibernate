@@ -15,21 +15,22 @@
             <version>6.4.2.Final</version>
         </dependency>
         <dependency>
-            <groupId>com.filemaker</groupId>
-            <artifactId>jdbc-driver</artifactId>
-            <version>21.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.9.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>3.24.2</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- fmjdbc driver -->
+        <dependency>
+            <groupId>com.filemaker.jdbc.driver</groupId>
+            <artifactId>fmjdbc</artifactId>
+            <version>21.0.2</version>
         </dependency>
     </dependencies>
 
@@ -37,15 +38,5 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

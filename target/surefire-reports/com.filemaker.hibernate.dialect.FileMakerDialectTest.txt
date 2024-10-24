@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.filemaker.hibernate.dialect.FileMakerDialectTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 6.098 sec <<< FAILURE!
+com.filemaker.hibernate.dialect.FileMakerDialectTest.testBasicCRUDOperations()  Time elapsed: 6.095 sec  <<< FAILURE!
+java.lang.IllegalStateException: Session is null. Cannot perform operations.
+	at com.filemaker.hibernate.dialect.FileMakerDialectTest.testBasicCRUDOperations(FileMakerDialectTest.java:88)
+

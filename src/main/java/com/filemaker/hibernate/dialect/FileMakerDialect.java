@@ -6,7 +6,6 @@ import org.hibernate.dialect.DatabaseVersion;
 import org.hibernate.dialect.Dialect;
 import org.hibernate.dialect.pagination.LimitHandler;
 import org.hibernate.engine.jdbc.dialect.spi.DialectResolutionInfo;
-import org.hibernate.query.spi.QueryEngine;
 import org.hibernate.sql.ast.SqlAstTranslatorFactory;
 import org.hibernate.type.descriptor.jdbc.JdbcType;
 import org.hibernate.type.descriptor.jdbc.spi.JdbcTypeRegistry;
@@ -55,6 +54,10 @@ public class FileMakerDialect extends Dialect {
     public LimitHandler getLimitHandler() {
         return new FileMakerLimitHandler();
     }
+
+
+     // identity columns support ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
 
     @Override
     public boolean dropConstraints() {
@@ -118,8 +121,16 @@ public class FileMakerDialect extends Dialect {
     }
 
     // New method required for Hibernate 6
+    /*
     @Override
     public void initializeFunctionRegistry(QueryEngine queryEngine) {
         super.initializeFunctionRegistry(queryEngine);
     }
+    */
+
+    // Removed the unsupported method to resolve the error
+    // @Override
+    // public boolean supportsIdentityColumns() {
+    //     return false; // Indicate that identity key generation is not supported
+    // }
 }
