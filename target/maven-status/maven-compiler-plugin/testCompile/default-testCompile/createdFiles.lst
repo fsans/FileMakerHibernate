@@ -1,2 +1,3 @@
-com/filemaker/hibernate/dialect/FileMakerDialectTest.class
-com/filemaker/hibernate/dialect/FileMakerDialectTest$Contact.class
+org/hibernate/community/dialect/Contact.class
+org/hibernate/community/dialect/HibernateUtil.class
+org/hibernate/community/dialect/HibernateUtilTest.class

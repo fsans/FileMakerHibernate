@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: org.hibernate.community.dialect.HibernateUtilTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 1, Skipped: 4, Time elapsed: 1.748 s <<< FAILURE! - in org.hibernate.community.dialect.HibernateUtilTest
+org.hibernate.community.dialect.HibernateUtilTest.testCreate  Time elapsed: 0.072 s  <<< ERROR!
+java.lang.ClassCastException: class com.filemaker.jdbc3.J3Statement cannot be cast to class java.sql.PreparedStatement (com.filemaker.jdbc3.J3Statement is in unnamed module of loader 'app'; java.sql.PreparedStatement is in module java.sql of loader 'platform')
+	at org.hibernate.community.dialect.HibernateUtilTest.testCreate(HibernateUtilTest.java:42)
+
