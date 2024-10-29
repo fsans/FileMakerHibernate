@@ -14,10 +14,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import jakarta.persistence.Query;
-import jakarta.persistence.RollbackException;
 import jakarta.persistence.TypedQuery;
-
 
 public class HibernateUtilTest {
 
@@ -37,20 +34,13 @@ public class HibernateUtilTest {
         System.out.println("SessionFactory destroyed at AfterAll");
     }
 
-    //@Disabled
     @Test
     public void testCreate() {
         System.out.println("Running testCreate...");
 
-        // Ensure the session is opened before beginning the transaction
         Assertions.assertNotNull(session, "Session should not be null");
-        System.out.println("flag 1");
-
         session.beginTransaction();
-        System.out.println("flag 2");
-
         Contact contact = new Contact("smith", "smith@example.com");
-        System.out.println("flag 3");
 
         try {
             session.persist(contact);
@@ -58,25 +48,16 @@ public class HibernateUtilTest {
             System.err.println("Error persisting contact: " + e.getMessage());
         }
 
-        System.out.println("flag 4");
-
         session.getTransaction().commit();
-
-        System.out.println("flag 5");
-
         Long id = contact.getId();
-
-        System.out.println("Created ID: " + id);
-
         Assertions.assertTrue(id > 0);
     }
-
 
     @Disabled
     @Test
     public void testUpdate() {
         System.out.println("Running testUpdate...");
-     
+
         Long id = 309L;
         Contact contact = new Contact();
         contact.setId(id);
@@ -87,9 +68,9 @@ public class HibernateUtilTest {
         session.merge(contact);
         session.getTransaction().commit();
         Contact updatedContact = session.find(Contact.class, id);
-    
+
         assertEquals("smith", updatedContact.getName());
-        
+
     }
 
     @Disabled
@@ -114,14 +95,14 @@ public class HibernateUtilTest {
     @Test
     public void testDelete() {
         System.out.println("Running testDelete...");
-     
+
         Long id = 328L;
         Contact product = session.find(Contact.class, id);
         session.beginTransaction();
         session.remove(product);
         session.getTransaction().commit();
         Contact deletedContact = session.find(Contact.class, id);
-     
+
         Assertions.assertNull(deletedContact);
     }
 

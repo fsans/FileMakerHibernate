@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: org.hibernate.community.dialect.HibernateUtilTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 1, Skipped: 4, Time elapsed: 1.521 s <<< FAILURE! - in org.hibernate.community.dialect.HibernateUtilTest
-org.hibernate.community.dialect.HibernateUtilTest.testCreate  Time elapsed: 0.079 s  <<< ERROR!
+Tests run: 5, Failures: 0, Errors: 1, Skipped: 4, Time elapsed: 3.194 s <<< FAILURE! - in org.hibernate.community.dialect.HibernateUtilTest
+org.hibernate.community.dialect.HibernateUtilTest.testCreate  Time elapsed: 0.114 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "java.lang.Long.longValue()" because "id" is null
-	at org.hibernate.community.dialect.HibernateUtilTest.testCreate(HibernateUtilTest.java:71)
+	at org.hibernate.community.dialect.HibernateUtilTest.testCreate(HibernateUtilTest.java:53)
 
