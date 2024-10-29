@@ -17,6 +17,9 @@ public class FileMakerLimitHandler extends AbstractLimitHandler {
      * FETCH FIRST [ n [ PERCENT ] ] { ROWS | ROW } {ONLY | WITH TIES } ]
      *
      */
+
+    public static final FileMakerLimitHandler INSTANCE = new FileMakerLimitHandler();
+
     private static final String OFFSET_TEMPLATE = " offset %d rows /*?*/";
     private static final String FETCH_TEMPLATE = " fetch first %d rows only /*?*/";
 

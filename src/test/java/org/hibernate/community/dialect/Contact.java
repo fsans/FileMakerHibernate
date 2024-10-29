@@ -9,7 +9,10 @@ import jakarta.persistence.Id;
 @Entity
 @Table(name = "contact")
 public class Contact {
-
+  
+    // use always GenerationType.IDENTITY
+    // as a Long or Integer, An identity or autoincrement column
+    // TODO: investigate use of GenerationType.UUID in FM
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -1,12 +1,19 @@
 package org.hibernate.community.dialect;
 
+import java.beans.Statement;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Types;
 
 import org.hibernate.dialect.DatabaseVersion;
 import org.hibernate.dialect.Dialect;
 import org.hibernate.dialect.pagination.LimitHandler;
 import org.hibernate.engine.jdbc.dialect.spi.DialectResolutionInfo;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
+import org.hibernate.exception.spi.SQLExceptionConversionDelegate;
+import org.hibernate.resource.jdbc.spi.StatementInspector;
 import org.hibernate.sql.ast.SqlAstTranslatorFactory;
+import org.hibernate.sql.exec.spi.JdbcSelectExecutor;
 import org.hibernate.type.descriptor.jdbc.JdbcType;
 import org.hibernate.type.descriptor.jdbc.spi.JdbcTypeRegistry;
 import org.hibernate.community.dialect.identity.FileMakerIdentityColumnSupport;
@@ -20,8 +27,10 @@ import org.hibernate.community.dialect.pagination.FileMakerLimitHandler;
 
 public class FileMakerDialect extends Dialect {
 
+    private static final DatabaseVersion DEFAULT_VERSION = DatabaseVersion.make( 21, 0 );
+
     public FileMakerDialect() {
-        this(DatabaseVersion.make(0, 0));
+        this( DEFAULT_VERSION );
     }
 
     public FileMakerDialect(DatabaseVersion version) {
@@ -29,7 +38,9 @@ public class FileMakerDialect extends Dialect {
     }
 
     public FileMakerDialect(DialectResolutionInfo info) {
-        super(info);
+        //super(info);
+        this( info.makeCopyOrDefault( DEFAULT_VERSION ) );
+		registerKeywords( info );
     }
 
     @Override
@@ -46,6 +57,10 @@ public class FileMakerDialect extends Dialect {
             case Types.INTEGER:
             case Types.DECIMAL:
             case Types.BOOLEAN:
+            case Types.BIGINT:
+            case Types.DOUBLE:
+            case Types.NUMERIC:
+            case Types.SMALLINT:
                 jdbcTypeCode = Types.DOUBLE;
                 break;
             case Types.VARCHAR:
@@ -53,19 +68,26 @@ public class FileMakerDialect extends Dialect {
                 jdbcTypeCode = Types.VARCHAR;
                 break;
         }
-        return super.resolveSqlTypeDescriptor(columnTypeName, jdbcTypeCode, precision, scale, jdbcTypeRegistry);
+        return super.resolveSqlTypeDescriptor( 
+            columnTypeName, 
+            jdbcTypeCode, 
+            precision, 
+            scale, 
+            jdbcTypeRegistry 
+            );
     }
+
 
     @Override
     public LimitHandler getLimitHandler() {
-        return new FileMakerLimitHandler();
+        return FileMakerLimitHandler.INSTANCE;
     }
 
-
-    @Override
+     @Override
     public FileMakerIdentityColumnSupport getIdentityColumnSupport() {
-        return new FileMakerIdentityColumnSupport();
+        return FileMakerIdentityColumnSupport.INSTANCE;
     }
+
     
     @Override
     public boolean dropConstraints() {
@@ -117,6 +139,8 @@ public class FileMakerDialect extends Dialect {
         return false;
     }
 
+
+
     @Override
     public boolean supportsUnionAll() {
         return false;
@@ -136,6 +160,16 @@ public class FileMakerDialect extends Dialect {
     }
     */
 
+
+    @Override
+	public String[] getCreateSchemaCommand(String schemaName) {
+		throw new UnsupportedOperationException( "No create schema syntax supported by " + getClass().getName() );
+	}
+
+	@Override
+	public String[] getDropSchemaCommand(String schemaName) {
+		throw new UnsupportedOperationException( "No drop schema syntax supported by " + getClass().getName() );
+	}
 
 
 }

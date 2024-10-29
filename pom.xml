@@ -12,7 +12,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>6.6.1.Final</version>
+            <version>6.5.3.Final</version>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
@@ -43,6 +43,7 @@
             <artifactId>jakarta.persistence-api</artifactId>
             <version>3.1.0</version>
         </dependency>
+
     </dependencies>
 
     <build>
