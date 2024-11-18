@@ -25,25 +25,25 @@ public class FileMakerLimitHandler extends AbstractLimitHandler {
 
     @Override
     public String processSql(String sql, Limit selection) {
-        StringBuilder sb = new StringBuilder(sql.length() + OFFSET_TEMPLATE.length() + FETCH_TEMPLATE.length());
-        sb.append(sql);
+        StringBuilder stringBuilder = new StringBuilder(sql.length() + OFFSET_TEMPLATE.length() + FETCH_TEMPLATE.length());
+        stringBuilder.append(sql);
 
         // Append offset and fetch if applicable
-        appendOffset(sb, selection);
-        appendFetch(sb, selection);
+        appendOffset(stringBuilder, selection);
+        appendFetch(stringBuilder, selection);
 
-        return sb.toString();
+        return stringBuilder.toString();
     }
 
-    private void appendOffset(StringBuilder sb, Limit selection) {
+    private void appendOffset(StringBuilder stringBuilder, Limit selection) {
         if (hasFirstRow(selection)) {
-            sb.append(String.format(OFFSET_TEMPLATE, selection.getFirstRow()));
+            stringBuilder.append(String.format(OFFSET_TEMPLATE, selection.getFirstRow()));
         }
     }
 
-    private void appendFetch(StringBuilder sb, Limit selection) {
+    private void appendFetch(StringBuilder stringBuilder, Limit selection) {
         if (hasMaxRows(selection)) {
-            sb.append(String.format(FETCH_TEMPLATE, selection.getMaxRows()));
+            stringBuilder.append(String.format(FETCH_TEMPLATE, selection.getMaxRows()));
         }
     }
 

@@ -1,4 +1,4 @@
-package org.hibernate.community.dialect;
+package org.hibernate.community.dialect.test;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;

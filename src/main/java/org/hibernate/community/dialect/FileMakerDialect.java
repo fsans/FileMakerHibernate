@@ -13,6 +13,7 @@ import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.exception.spi.SQLExceptionConversionDelegate;
 import org.hibernate.resource.jdbc.spi.StatementInspector;
 import org.hibernate.sql.ast.SqlAstTranslatorFactory;
+import org.hibernate.sql.ast.spi.StandardSqlAstTranslatorFactory;
 import org.hibernate.sql.exec.spi.JdbcSelectExecutor;
 import org.hibernate.type.descriptor.jdbc.JdbcType;
 import org.hibernate.type.descriptor.jdbc.spi.JdbcTypeRegistry;
@@ -24,6 +25,7 @@ import org.hibernate.community.dialect.pagination.FileMakerLimitHandler;
  *
  * @author Francesc Sans
  */
+
 
 public class FileMakerDialect extends Dialect {
 
@@ -49,24 +51,47 @@ public class FileMakerDialect extends Dialect {
             int jdbcTypeCode,
             int precision,
             int scale,
+
+             /* driver supported data types: 
+                "numeric", "decimal", "int", "varchar", "character varying", "blob", "varbinary", "longvarbinary", "binary varying", "date", "time", "timestamp" 
+                 2, 3, 4, 12, 12, -2, -2, -2, -2, 91, 92, 93
+            */
             JdbcTypeRegistry jdbcTypeRegistry) {
 
         switch (jdbcTypeCode) {
-            case Types.FLOAT:
-            case Types.TINYINT:
-            case Types.INTEGER:
-            case Types.DECIMAL:
-            case Types.BOOLEAN:
-            case Types.BIGINT:
-            case Types.DOUBLE:
-            case Types.NUMERIC:
-            case Types.SMALLINT:
-                jdbcTypeCode = Types.DOUBLE;
+
+            case Types.NUMERIC: // 2 (fm native "Number")
+            case Types.DECIMAL: // 3
+            case Types.INTEGER: // 4
+                jdbcTypeCode = Types.NUMERIC;
                 break;
-            case Types.VARCHAR:
-            case Types.LONGNVARCHAR:
+
+            case Types.VARCHAR: // 12
+            case Types.LONGVARCHAR: // -1 (must be a character varying !!!)
                 jdbcTypeCode = Types.VARCHAR;
                 break;
+
+            case Types.BLOB: // 2004
+            case Types.VARBINARY: // -1 
+            case Types.LONGVARBINARY: // -4
+            //case Types.BINARY-VARYING: (must be a binary varying !!!)
+                jdbcTypeCode = Types.BINARY;
+                break;
+
+            case Types.DATE: // 91
+                jdbcTypeCode = Types.DATE;
+                break;
+
+            case Types.TIME: // 92
+                jdbcTypeCode = Types.TIME; 
+                break;
+
+            case Types.TIMESTAMP: // 93
+                jdbcTypeCode = Types.TIMESTAMP; 
+                break;
+
+            default:
+                jdbcTypeCode = Types.VARCHAR;
         }
         return super.resolveSqlTypeDescriptor( 
             columnTypeName, 
@@ -149,7 +174,8 @@ public class FileMakerDialect extends Dialect {
     // New method required for Hibernate 6
     @Override
     public SqlAstTranslatorFactory getSqlAstTranslatorFactory() {
-        return super.getSqlAstTranslatorFactory();
+        //return super.getSqlAstTranslatorFactory();
+         return new StandardSqlAstTranslatorFactory();
     }
 
     // New method required for Hibernate 6

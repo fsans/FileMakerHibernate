@@ -19,9 +19,13 @@
     <property name="hibernate.pool_validation_interval">30</property>
     <property name="hibernate.autocommit">false</property>
 
+    <property name="hibernate.jdbc.use_get_generated_keys">false</property>
+    <property name="hibernate.jdbc.use_scrollable_resultset">false</property>
+    <property name="hibernate.jdbc.wrap_result_sets">false</property>
+
     <property name="hibernate.transaction.jta.platform">org.hibernate.service.jta.platform.internal.NoJtaPlatform</property>
       
-    <mapping class="org.hibernate.community.dialect.Contact" />
+    <mapping class="org.hibernate.community.dialect.test.Contact" />
 
   </session-factory>
 </hibernate-configuration>

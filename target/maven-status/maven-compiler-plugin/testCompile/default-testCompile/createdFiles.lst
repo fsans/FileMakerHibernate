@@ -1,4 +1,4 @@
-org/hibernate/community/dialect/TestPreparedStatement.class
-org/hibernate/community/dialect/Contact.class
-org/hibernate/community/dialect/HibernateUtil.class
-org/hibernate/community/dialect/HibernateUtilTest.class
+org/hibernate/community/dialect/test/TestPreparedStatement.class
+org/hibernate/community/dialect/test/Contact.class
+org/hibernate/community/dialect/test/HibernateUtil.class
+org/hibernate/community/dialect/test/HibernateUtilTest.class

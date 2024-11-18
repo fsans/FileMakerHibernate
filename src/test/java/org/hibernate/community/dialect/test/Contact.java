@@ -1,16 +1,20 @@
-package org.hibernate.community.dialect;
+package org.hibernate.community.dialect.test;
 
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "contact")
-public class Contact {
+public class Contact implements Serializable {
   
-    // use always GenerationType.IDENTITY
+
+    private static final long serialVersionUID = 1L;
+    
+    // use always GenerationType.IDENTITY ??
     // as a Long or Integer, An identity or autoincrement column
     // TODO: investigate use of GenerationType.UUID in FM
     @Id
@@ -24,6 +28,12 @@ public class Contact {
     }
 
     public Contact(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    public Contact(Long id, String name, String email) {
+        this.id = id;
         this.name = name;
         this.email = email;
     }

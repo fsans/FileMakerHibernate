@@ -1,4 +1,4 @@
-package org.hibernate.community.dialect;
+package org.hibernate.community.dialect.test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

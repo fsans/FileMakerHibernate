@@ -34,9 +34,9 @@
         </dependency>
         <!-- fmjdbc driver -->
         <dependency>
-            <groupId>com.filemaker.jdbc.driver</groupId>
+            <groupId>com.filemaker.jdbc.Driver</groupId>
             <artifactId>fmjdbc</artifactId>
-            <version>21.0.2</version>
+            <version>21.0.1</version>
         </dependency>
         <dependency>
             <groupId>jakarta.persistence</groupId>

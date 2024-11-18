@@ -12,14 +12,14 @@ public class FileMakerIdentityColumnSupport extends IdentityColumnSupportImpl {
 
     @Override
     public boolean supportsIdentityColumns() {
-        return true;
+        return false;
     }
 
 
     @Override
     public String getIdentityColumnString(int type) {
         // The keyword used to specify an identity column, if identity column key generation is supported.
-        return "identity"; // Representing the concept, adjust as per actual requirement
+        return "SERIAL"; // Representing the concept, adjust as per actual requirement
     }
 
 
