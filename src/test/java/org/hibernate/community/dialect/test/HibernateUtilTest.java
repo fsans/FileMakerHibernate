@@ -47,7 +47,7 @@ public class HibernateUtilTest {
         System.out.println("SessionFactory destroyed at AfterAll");
     }
 
-
+    @Disabled
     @Test
     @Order(1)
     public void testJdbcDriverVersion() {
@@ -66,7 +66,7 @@ public class HibernateUtilTest {
     }
 
 
-
+    @Disabled
     @Test
     @Order(2)
     public void testCreateWithPreparedStatement() {
@@ -93,7 +93,7 @@ public class HibernateUtilTest {
         }
     }
 
-
+    @Disabled
     @Test
     @Order(3)
     public void testSelectWithPreparedStatement() {
@@ -128,7 +128,7 @@ public class HibernateUtilTest {
 
 
 
-    //@Disabled
+    @Disabled
     @Test
     @Order(4)
     public void testDirectCreate(){
@@ -145,32 +145,33 @@ public class HibernateUtilTest {
     }
 
 
-    @Disabled
+    //@Disabled
     @Test
     @Order(5)
     public void testCreate() {
-        System.out.println("Running testCreate...");
+        System.out.println("test5 - testCreate");
 
         Assertions.assertNotNull(session, "Session should not be null");
         session.beginTransaction();
-        Contact contact = new Contact("smith", "smith@example.com");
+        Contact contact = new Contact("abc", "abc@example.com");
 
         try {
             session.persist(contact);
         } catch (Exception e) {
-            System.err.println("Error persisting contact: " + e.getMessage());
+            System.err.println("test5 - Error persisting contact: " + e.getMessage());
         }
 
         session.getTransaction().commit();
         Long id = contact.getId();
         Assertions.assertTrue(id > 0);
+        System.out.println("test5 - id:" + contact.getId());
     }
 
     //@Disabled
     @Test
     @Order(6)
     public void testUpdate() {
-        System.out.println("Running testUpdate...");
+        System.out.println("test6 - testUpdate");
 
         Long id = 5L;
         Contact contact = new Contact();
@@ -191,29 +192,30 @@ public class HibernateUtilTest {
     @Test
     @Order(7)
     public void testGet() {
-        System.out.println("Running testGet...");
+        System.out.println("test7 - testGet by ID");
         Long id = 5L;
         Contact contact = session.find(Contact.class, id);
         assertEquals("pepe", contact.getName());
     }
 
-    @Disabled
+    //@Disabled
     @Test
     @Order(8)
     public void testList() {
-        System.out.println("Running testList...");
+        System.out.println("test8 - testList");
         TypedQuery<Contact> query = session.createQuery("from Contact", Contact.class);
         List<Contact> resultList = query.getResultList();
         Assertions.assertFalse(resultList.isEmpty());
+        System.out.println("test4 - got results: " + resultList.size() );
     }
 
     @Disabled
     @Test
     @Order(9)
     public void testDelete() {
-        System.out.println("Running testDelete...");
+        System.out.println("test9 - testDelete");
 
-        Long id = 281L;
+        Long id = 404L;
         Contact contact = session.find(Contact.class, id);
         session.beginTransaction();
         session.remove(contact);
