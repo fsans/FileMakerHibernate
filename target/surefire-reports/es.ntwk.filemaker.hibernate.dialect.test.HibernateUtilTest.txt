@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: es.ntwk.filemaker.hibernate.dialect.test.HibernateUtilTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 1, Skipped: 1, Time elapsed: 3.481 s <<< FAILURE! - in es.ntwk.filemaker.hibernate.dialect.test.HibernateUtilTest
+es.ntwk.filemaker.hibernate.dialect.test.HibernateUtilTest.testPagedList  Time elapsed: 0.133 s  <<< ERROR!
+org.hibernate.exception.JDBCConnectionException: could not prepare statement [[FileMaker][FileMaker JDBC] FQL0001/(1:81): There is an error in the syntax of the query.] [/* FROM Contact */ select c1_0.id,c1_0.email,c1_0.name from contact c1_0 offset ? rows fetch first ? rows only]
+	at es.ntwk.filemaker.hibernate.dialect.test.HibernateUtilTest.testPagedList(HibernateUtilTest.java:198)
+Caused by: com.filemaker.jdbc.FMSQLException: [FileMaker][FileMaker JDBC] FQL0001/(1:81): There is an error in the syntax of the query.
+	at es.ntwk.filemaker.hibernate.dialect.test.HibernateUtilTest.testPagedList(HibernateUtilTest.java:198)
+

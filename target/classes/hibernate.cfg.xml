@@ -5,11 +5,8 @@
     <property name="connection.username">admin</property>
     <property name="connection.password">wakawaka</property>
     <property name="connection.driver_class">com.filemaker.jdbc.Driver</property>
-    <property name="dialect">org.hibernate.community.dialect.FileMakerDialect</property>
+    <property name="dialect">es.ntwk.filemaker.hibernate.dialect.FileMakerDialect</property>
     <property name="hibernate.hbm2ddl.auto">none</property>
-    <property name="hibernate.show_sql">true</property>
-    <!-- <property name="hibernate.format_sql">true</property> -->
-    <!-- <property name="hibernate.use_sql_comments">true</property> -->
     <!-- <property name="hibernate.enable_lazy_load_no_trans">true</property> -->
     
 
@@ -23,9 +20,14 @@
     <property name="hibernate.jdbc.use_scrollable_resultset">false</property>
     <property name="hibernate.jdbc.wrap_result_sets">false</property>
 
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+    <property name="hibernate.use_sql_comments">true</property>
+    <property name="hibernate.generate_statistics">false</property>
+
     <property name="hibernate.transaction.jta.platform">org.hibernate.service.jta.platform.internal.NoJtaPlatform</property>
       
-    <mapping class="org.hibernate.community.dialect.test.Contact" />
+    <mapping class="es.ntwk.filemaker.hibernate.dialect.test.Contact" />
 
   </session-factory>
 </hibernate-configuration>
