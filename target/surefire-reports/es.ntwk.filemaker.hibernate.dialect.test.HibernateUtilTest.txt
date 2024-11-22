@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: es.ntwk.filemaker.hibernate.dialect.test.HibernateUtilTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 0, Errors: 1, Skipped: 8, Time elapsed: 2.305 s <<< FAILURE! - in es.ntwk.filemaker.hibernate.dialect.test.HibernateUtilTest
+es.ntwk.filemaker.hibernate.dialect.test.HibernateUtilTest.testCreate  Time elapsed: 0.016 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.lang.Long.longValue()" because "id" is null
+	at es.ntwk.filemaker.hibernate.dialect.test.HibernateUtilTest.testCreate(HibernateUtilTest.java:102)
+

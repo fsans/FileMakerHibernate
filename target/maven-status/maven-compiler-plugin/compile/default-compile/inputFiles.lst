@@ -1,0 +1,6 @@
+/Volumes/DATA00/HOME/Documents/WORK/GITHUB/FileMakerHibernate/src/main/java/es/ntwk/filemaker/hibernate/dialect/FileMakerDialect.java
+/Volumes/DATA00/HOME/Documents/WORK/GITHUB/FileMakerHibernate/src/main/java/es/ntwk/filemaker/hibernate/dialect/FileMakerDialectLegacy.java
+/Volumes/DATA00/HOME/Documents/WORK/GITHUB/FileMakerHibernate/src/main/java/es/ntwk/filemaker/hibernate/dialect/FileMakerSqlAstTranslator.java
+/Volumes/DATA00/HOME/Documents/WORK/GITHUB/FileMakerHibernate/src/main/java/es/ntwk/filemaker/hibernate/dialect/identity/FileMakerIdentityColumnSupport.java
+/Volumes/DATA00/HOME/Documents/WORK/GITHUB/FileMakerHibernate/src/main/java/es/ntwk/filemaker/hibernate/dialect/pagination/FileMakerLimitHandler.java
+/Volumes/DATA00/HOME/Documents/WORK/GITHUB/FileMakerHibernate/src/main/java/es/ntwk/filemaker/hibernate/dialect/pagination/FileMakerOffsetFetchLimitHandler.java

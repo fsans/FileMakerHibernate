@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1} - %m%n"/>
+        </Console>
+        <File name="FileLogger" fileName="logs/app.log" append="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1} - %m%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileLogger"/>
+        </Root>
+
+        <Logger name="org.hibernate.SQL" level="DEBUG" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileLogger"/>
+        </Logger>
+
+        <Logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE" additivity="false">
+            <AppenderRef ref="FileLogger"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="org.hibernate.SQL" level="TRACE" additivity="false">
+            <AppenderRef ref="FileLogger"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="org.hibernate.type" level="TRACE" additivity="false">
+            <AppenderRef ref="FileLogger"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="org.hibernate.persister.entity" level="TRACE" additivity="false">
+            <AppenderRef ref="FileLogger"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="org.hibernate.orm.jdbc.bind" level="TRACE" additivity="false">
+            <AppenderRef ref="FileLogger"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+        
+        
+        <Logger name="es.ntwk.filemaker.hibernate.dialect.pagination" level="TRACE" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileLogger"/>
+        </Logger>
+
+      <Logger name="es.ntwk.filemaker.hibernate.dialect.identity" level="TRACE" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileLogger"/>
+        </Logger>
+
+        <Logger name="es.ntwk.filemaker.hibernate.dialect" level="TRACE" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileLogger"/>
+        </Logger>
+
+        
+    </Loggers>
+</Configuration>

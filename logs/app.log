@@ -1,0 +1,520 @@
+2024-11-19 17:25:57 INFO  Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-19 17:25:57 INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-19 17:25:57 WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-11-19 17:25:58 INFO  pooling - HHH10001005: Loaded JDBC driver class: com.filemaker.jdbc.Driver
+2024-11-19 17:25:58 INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:filemaker://192.168.0.24/Contacts]
+2024-11-19 17:25:58 INFO  pooling - HHH10001001: Connection properties: {password=****, user=admin}
+2024-11-19 17:25:58 INFO  pooling - HHH10001003: Autocommit mode: false
+2024-11-19 17:25:58 INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
+2024-11-19 17:25:59 DEBUG SQL - 
+    /* insert for
+        es.ntwk.filemaker.hibernate.dialect.test.Contact */insert 
+    into
+        contact (email, name) 
+    values
+        (?, ?)
+2024-11-19 17:25:59 DEBUG SQL - 
+    select
+        max(id) 
+    from
+        contact
+2024-11-19 17:25:59 DEBUG SQL - 
+    /* insert for
+        es.ntwk.filemaker.hibernate.dialect.test.Contact */insert 
+    into
+        contact (email, name) 
+    values
+        (?, ?)
+2024-11-19 17:25:59 DEBUG SQL - 
+    select
+        max(id) 
+    from
+        contact
+2024-11-19 17:25:59 DEBUG SQL - 
+    select
+        c1_0.id,
+        c1_0.email,
+        c1_0.name 
+    from
+        contact c1_0 
+    where
+        c1_0.id=?
+2024-11-19 17:26:00 DEBUG SQL - 
+    select
+        c1_0.id,
+        c1_0.email,
+        c1_0.name 
+    from
+        contact c1_0 
+    where
+        c1_0.id=?
+2024-11-19 17:26:00 DEBUG SQL - 
+    /* dynamic native SQL query */ SELECT
+        id,
+        email,
+        name 
+    FROM
+        contact 
+    OFFSET
+        0 ROW 
+    FETCH
+        FIRST 5 ROW ONLY
+2024-11-19 17:26:00 DEBUG SQL - 
+    /* 
+from
+    Contact */ select
+        c1_0.id,
+        c1_0.email,
+        c1_0.name 
+    from
+        contact c1_0
+2024-11-19 17:26:00 INFO  HibernateUtilTest - test12 - testPagedList
+2024-11-19 17:26:00 DEBUG SQL - 
+    /* 
+FROM
+    Contact */ select
+        c1_0.id,
+        c1_0.email,
+        c1_0.name 
+    from
+        contact c1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+2024-11-19 17:26:00 WARN  SqlExceptionHelper - SQL Error: 27026, SQLState: 08007
+2024-11-19 17:26:00 ERROR SqlExceptionHelper - [FileMaker][FileMaker JDBC] FQL0001/(1:81): There is an error in the syntax of the query.
+2024-11-19 17:26:00 INFO  pooling - HHH10001008: Cleaning up connection pool [jdbc:filemaker://192.168.0.24/Contacts]
+2024-11-19 17:29:48 INFO  Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-19 17:29:48 INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-19 17:29:48 WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-11-19 17:29:48 INFO  pooling - HHH10001005: Loaded JDBC driver class: com.filemaker.jdbc.Driver
+2024-11-19 17:29:48 INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:filemaker://192.168.0.24/Contacts]
+2024-11-19 17:29:48 INFO  pooling - HHH10001001: Connection properties: {password=****, user=admin}
+2024-11-19 17:29:48 INFO  pooling - HHH10001003: Autocommit mode: false
+2024-11-19 17:29:48 INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
+2024-11-19 17:29:50 INFO  HibernateUtilTest - SessionFactory created at BeforeAll
+2024-11-19 17:29:50 DEBUG SQL - 
+    /* insert for
+        es.ntwk.filemaker.hibernate.dialect.test.Contact */insert 
+    into
+        contact (email, name) 
+    values
+        (?, ?)
+2024-11-19 17:29:50 DEBUG SQL - 
+    select
+        max(id) 
+    from
+        contact
+2024-11-19 17:29:50 DEBUG SQL - 
+    /* insert for
+        es.ntwk.filemaker.hibernate.dialect.test.Contact */insert 
+    into
+        contact (email, name) 
+    values
+        (?, ?)
+2024-11-19 17:29:50 DEBUG SQL - 
+    select
+        max(id) 
+    from
+        contact
+2024-11-19 17:29:50 DEBUG SQL - 
+    select
+        c1_0.id,
+        c1_0.email,
+        c1_0.name 
+    from
+        contact c1_0 
+    where
+        c1_0.id=?
+2024-11-19 17:29:50 DEBUG SQL - 
+    select
+        c1_0.id,
+        c1_0.email,
+        c1_0.name 
+    from
+        contact c1_0 
+    where
+        c1_0.id=?
+2024-11-19 17:29:50 DEBUG SQL - 
+    /* dynamic native SQL query */ SELECT
+        id,
+        email,
+        name 
+    FROM
+        contact 
+    OFFSET
+        0 ROW 
+    FETCH
+        FIRST 5 ROW ONLY
+2024-11-19 17:29:50 DEBUG SQL - 
+    /* 
+from
+    Contact */ select
+        c1_0.id,
+        c1_0.email,
+        c1_0.name 
+    from
+        contact c1_0
+2024-11-19 17:29:51 INFO  HibernateUtilTest - test12 - testPagedList
+2024-11-19 17:29:51 DEBUG SQL - 
+    /* 
+FROM
+    Contact */ select
+        c1_0.id,
+        c1_0.email,
+        c1_0.name 
+    from
+        contact c1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+2024-11-19 17:29:51 WARN  SqlExceptionHelper - SQL Error: 27026, SQLState: 08007
+2024-11-19 17:29:51 ERROR SqlExceptionHelper - [FileMaker][FileMaker JDBC] FQL0001/(1:81): There is an error in the syntax of the query.
+2024-11-19 17:29:51 INFO  pooling - HHH10001008: Cleaning up connection pool [jdbc:filemaker://192.168.0.24/Contacts]
+2024-11-19 17:29:51 INFO  HibernateUtilTest - SessionFactory destroyed at AfterAll
+2024-11-19 18:35:00 INFO  Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-19 18:35:00 INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-19 18:35:00 WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-11-19 18:35:00 INFO  pooling - HHH10001005: Loaded JDBC driver class: com.filemaker.jdbc.Driver
+2024-11-19 18:35:00 INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:filemaker://192.168.0.24/Contacts]
+2024-11-19 18:35:00 INFO  pooling - HHH10001001: Connection properties: {password=****, user=admin}
+2024-11-19 18:35:00 INFO  pooling - HHH10001003: Autocommit mode: false
+2024-11-19 18:35:00 INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
+2024-11-19 18:35:02 INFO  HibernateUtilTest - SessionFactory created at BeforeAll
+2024-11-19 18:35:02 DEBUG SQL - 
+    /* insert for
+        es.ntwk.filemaker.hibernate.dialect.test.Contact */insert 
+    into
+        contact (email, name) 
+    values
+        (?, ?)
+2024-11-19 18:35:02 TRACE bind - binding parameter (1:VARCHAR) <- [smith@example.com]
+2024-11-19 18:35:02 TRACE bind - binding parameter (2:VARCHAR) <- [smithww]
+2024-11-19 18:35:02 DEBUG SQL - 
+    select
+        max(id) 
+    from
+        contact
+2024-11-19 18:35:02 DEBUG SQL - 
+    /* insert for
+        es.ntwk.filemaker.hibernate.dialect.test.Contact */insert 
+    into
+        contact (email, name) 
+    values
+        (?, ?)
+2024-11-19 18:35:02 TRACE bind - binding parameter (1:VARCHAR) <- [abc@example.com]
+2024-11-19 18:35:02 TRACE bind - binding parameter (2:VARCHAR) <- [abc]
+2024-11-19 18:35:02 DEBUG SQL - 
+    select
+        max(id) 
+    from
+        contact
+2024-11-19 18:35:02 DEBUG SQL - 
+    select
+        c1_0.id,
+        c1_0.email,
+        c1_0.name 
+    from
+        contact c1_0 
+    where
+        c1_0.id=?
+2024-11-19 18:35:02 TRACE bind - binding parameter (1:BIGINT) <- [5]
+2024-11-19 18:35:02 DEBUG SQL - 
+    select
+        c1_0.id,
+        c1_0.email,
+        c1_0.name 
+    from
+        contact c1_0 
+    where
+        c1_0.id=?
+2024-11-19 18:35:02 TRACE bind - binding parameter (1:BIGINT) <- [5]
+2024-11-19 18:35:02 DEBUG SQL - 
+    /* dynamic native SQL query */ SELECT
+        id,
+        email,
+        name 
+    FROM
+        contact 
+    OFFSET
+        0 ROW 
+    FETCH
+        FIRST 5 ROW ONLY
+2024-11-19 18:35:02 DEBUG SQL - 
+    /* 
+from
+    Contact */ select
+        c1_0.id,
+        c1_0.email,
+        c1_0.name 
+    from
+        contact c1_0
+2024-11-19 18:35:02 INFO  HibernateUtilTest - test12 - testPagedList
+2024-11-19 18:35:02 DEBUG SQL - 
+    /* 
+FROM
+    Contact */ select
+        c1_0.id,
+        c1_0.email,
+        c1_0.name 
+    from
+        contact c1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+2024-11-19 18:35:02 WARN  SqlExceptionHelper - SQL Error: 27026, SQLState: 08007
+2024-11-19 18:35:02 ERROR SqlExceptionHelper - [FileMaker][FileMaker JDBC] FQL0001/(1:81): There is an error in the syntax of the query.
+2024-11-19 18:35:02 INFO  pooling - HHH10001008: Cleaning up connection pool [jdbc:filemaker://192.168.0.24/Contacts]
+2024-11-19 18:35:02 INFO  HibernateUtilTest - SessionFactory destroyed at AfterAll
+2024-11-19 18:40:49 INFO  Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-19 18:40:49 INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BasicTypeReference@7ee3d262
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BasicTypeReference@7ee3d262
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.lang.Boolean -> org.hibernate.type.BasicTypeReference@7ee3d262
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration numeric_boolean -> org.hibernate.type.BasicTypeReference@396e6d9
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration org.hibernate.type.NumericBooleanConverter -> org.hibernate.type.BasicTypeReference@396e6d9
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration true_false -> org.hibernate.type.BasicTypeReference@75308740
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration org.hibernate.type.TrueFalseConverter -> org.hibernate.type.BasicTypeReference@75308740
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration yes_no -> org.hibernate.type.BasicTypeReference@5acc9fdf
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration org.hibernate.type.YesNoConverter -> org.hibernate.type.BasicTypeReference@5acc9fdf
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.BasicTypeReference@3a5c2626
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.BasicTypeReference@3a5c2626
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.lang.Byte -> org.hibernate.type.BasicTypeReference@3a5c2626
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration binary -> org.hibernate.type.BasicTypeReference@e48bf9a
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration byte[] -> org.hibernate.type.BasicTypeReference@e48bf9a
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration [B -> org.hibernate.type.BasicTypeReference@e48bf9a
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration binary_wrapper -> org.hibernate.type.BasicTypeReference@7fb33394
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration wrapper-binary -> org.hibernate.type.BasicTypeReference@7fb33394
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration image -> org.hibernate.type.BasicTypeReference@41bf79da
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration blob -> org.hibernate.type.BasicTypeReference@1a891add
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.sql.Blob -> org.hibernate.type.BasicTypeReference@1a891add
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration materialized_blob -> org.hibernate.type.BasicTypeReference@5176d279
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration materialized_blob_wrapper -> org.hibernate.type.BasicTypeReference@373f7450
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration short -> org.hibernate.type.BasicTypeReference@d74bac4
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration short -> org.hibernate.type.BasicTypeReference@d74bac4
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.lang.Short -> org.hibernate.type.BasicTypeReference@d74bac4
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration integer -> org.hibernate.type.BasicTypeReference@5ff90645
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration int -> org.hibernate.type.BasicTypeReference@5ff90645
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.lang.Integer -> org.hibernate.type.BasicTypeReference@5ff90645
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration long -> org.hibernate.type.BasicTypeReference@387bf2d9
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration long -> org.hibernate.type.BasicTypeReference@387bf2d9
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.lang.Long -> org.hibernate.type.BasicTypeReference@387bf2d9
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration float -> org.hibernate.type.BasicTypeReference@74aa9c72
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration float -> org.hibernate.type.BasicTypeReference@74aa9c72
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.lang.Float -> org.hibernate.type.BasicTypeReference@74aa9c72
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration double -> org.hibernate.type.BasicTypeReference@5c20aab9
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration double -> org.hibernate.type.BasicTypeReference@5c20aab9
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.lang.Double -> org.hibernate.type.BasicTypeReference@5c20aab9
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration big_integer -> org.hibernate.type.BasicTypeReference@4b7c4456
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.math.BigInteger -> org.hibernate.type.BasicTypeReference@4b7c4456
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration big_decimal -> org.hibernate.type.BasicTypeReference@2c768ada
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.math.BigDecimal -> org.hibernate.type.BasicTypeReference@2c768ada
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration character -> org.hibernate.type.BasicTypeReference@c1fca2a
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration char -> org.hibernate.type.BasicTypeReference@c1fca2a
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.lang.Character -> org.hibernate.type.BasicTypeReference@c1fca2a
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration character_nchar -> org.hibernate.type.BasicTypeReference@5533dc72
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration string -> org.hibernate.type.BasicTypeReference@7c447c76
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.lang.String -> org.hibernate.type.BasicTypeReference@7c447c76
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration nstring -> org.hibernate.type.BasicTypeReference@64fc097e
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration characters -> org.hibernate.type.BasicTypeReference@1640c151
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration char[] -> org.hibernate.type.BasicTypeReference@1640c151
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration [C -> org.hibernate.type.BasicTypeReference@1640c151
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration wrapper-characters -> org.hibernate.type.BasicTypeReference@5d5b5fa7
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration text -> org.hibernate.type.BasicTypeReference@2a32fb6
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration ntext -> org.hibernate.type.BasicTypeReference@6107165
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration clob -> org.hibernate.type.BasicTypeReference@164a62bf
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.sql.Clob -> org.hibernate.type.BasicTypeReference@164a62bf
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration nclob -> org.hibernate.type.BasicTypeReference@11ebb1b6
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.sql.NClob -> org.hibernate.type.BasicTypeReference@11ebb1b6
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration materialized_clob -> org.hibernate.type.BasicTypeReference@aaee2a2
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration materialized_clob_char_array -> org.hibernate.type.BasicTypeReference@f3021cb
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration materialized_clob_character_array -> org.hibernate.type.BasicTypeReference@4aaae508
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration materialized_nclob -> org.hibernate.type.BasicTypeReference@6009bea
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration materialized_nclob_character_array -> org.hibernate.type.BasicTypeReference@7bc6d27a
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration materialized_nclob_char_array -> org.hibernate.type.BasicTypeReference@75769ab0
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration Duration -> org.hibernate.type.BasicTypeReference@6869a3b3
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.time.Duration -> org.hibernate.type.BasicTypeReference@6869a3b3
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration LocalDateTime -> org.hibernate.type.BasicTypeReference@6ab4ba9f
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.time.LocalDateTime -> org.hibernate.type.BasicTypeReference@6ab4ba9f
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration LocalDate -> org.hibernate.type.BasicTypeReference@27ace0b1
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.time.LocalDate -> org.hibernate.type.BasicTypeReference@27ace0b1
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration LocalTime -> org.hibernate.type.BasicTypeReference@664e5dee
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.time.LocalTime -> org.hibernate.type.BasicTypeReference@664e5dee
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration OffsetDateTime -> org.hibernate.type.BasicTypeReference@431f1eaf
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.time.OffsetDateTime -> org.hibernate.type.BasicTypeReference@431f1eaf
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration OffsetDateTimeWithTimezone -> org.hibernate.type.BasicTypeReference@cb03411
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration OffsetDateTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@4c59e45e
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration OffsetTime -> org.hibernate.type.BasicTypeReference@58ec7116
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.time.OffsetTime -> org.hibernate.type.BasicTypeReference@58ec7116
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration OffsetTimeUtc -> org.hibernate.type.BasicTypeReference@63bde6c2
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration OffsetTimeWithTimezone -> org.hibernate.type.BasicTypeReference@6ea04618
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration OffsetTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@6dd82486
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration ZonedDateTime -> org.hibernate.type.BasicTypeReference@56078cea
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.time.ZonedDateTime -> org.hibernate.type.BasicTypeReference@56078cea
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration ZonedDateTimeWithTimezone -> org.hibernate.type.BasicTypeReference@5a00eb1e
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration ZonedDateTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@36fcf6c0
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration date -> org.hibernate.type.BasicTypeReference@1aac188d
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.sql.Date -> org.hibernate.type.BasicTypeReference@1aac188d
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration time -> org.hibernate.type.BasicTypeReference@7026b7ee
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.sql.Time -> org.hibernate.type.BasicTypeReference@7026b7ee
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration timestamp -> org.hibernate.type.BasicTypeReference@2d23faef
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.sql.Timestamp -> org.hibernate.type.BasicTypeReference@2d23faef
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.util.Date -> org.hibernate.type.BasicTypeReference@2d23faef
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration calendar -> org.hibernate.type.BasicTypeReference@7cb8437d
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.util.Calendar -> org.hibernate.type.BasicTypeReference@7cb8437d
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.BasicTypeReference@7cb8437d
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration calendar_date -> org.hibernate.type.BasicTypeReference@62a4417
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration calendar_time -> org.hibernate.type.BasicTypeReference@43f61afb
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration instant -> org.hibernate.type.BasicTypeReference@713064e8
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.time.Instant -> org.hibernate.type.BasicTypeReference@713064e8
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration uuid -> org.hibernate.type.BasicTypeReference@4fad6218
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.util.UUID -> org.hibernate.type.BasicTypeReference@4fad6218
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration pg-uuid -> org.hibernate.type.BasicTypeReference@4fad6218
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration uuid-binary -> org.hibernate.type.BasicTypeReference@1bf39d06
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration uuid-char -> org.hibernate.type.BasicTypeReference@68217d41
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration class -> org.hibernate.type.BasicTypeReference@1ac45389
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.lang.Class -> org.hibernate.type.BasicTypeReference@1ac45389
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration currency -> org.hibernate.type.BasicTypeReference@3e5d4f6b
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration Currency -> org.hibernate.type.BasicTypeReference@3e5d4f6b
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.util.Currency -> org.hibernate.type.BasicTypeReference@3e5d4f6b
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration locale -> org.hibernate.type.BasicTypeReference@39c1fe0b
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.util.Locale -> org.hibernate.type.BasicTypeReference@39c1fe0b
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration serializable -> org.hibernate.type.BasicTypeReference@5ae95707
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.io.Serializable -> org.hibernate.type.BasicTypeReference@5ae95707
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration timezone -> org.hibernate.type.BasicTypeReference@62891fc8
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.util.TimeZone -> org.hibernate.type.BasicTypeReference@62891fc8
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration ZoneOffset -> org.hibernate.type.BasicTypeReference@367b22e5
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.time.ZoneOffset -> org.hibernate.type.BasicTypeReference@367b22e5
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration url -> org.hibernate.type.BasicTypeReference@fca387
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.net.URL -> org.hibernate.type.BasicTypeReference@fca387
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration vector -> org.hibernate.type.BasicTypeReference@10bd9df0
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration row_version -> org.hibernate.type.BasicTypeReference@3ae0b770
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration object -> org.hibernate.type.JavaObjectType@3ffb3598
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration java.lang.Object -> org.hibernate.type.JavaObjectType@3ffb3598
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration null -> org.hibernate.type.NullType@47447ccf
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration imm_date -> org.hibernate.type.BasicTypeReference@7afb1741
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration imm_time -> org.hibernate.type.BasicTypeReference@263bbfeb
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration imm_timestamp -> org.hibernate.type.BasicTypeReference@31edeac
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration imm_calendar -> org.hibernate.type.BasicTypeReference@67d86804
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration imm_calendar_date -> org.hibernate.type.BasicTypeReference@45bb2aa1
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration imm_calendar_time -> org.hibernate.type.BasicTypeReference@3e84111a
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration imm_binary -> org.hibernate.type.BasicTypeReference@4b1a43d8
+2024-11-19 18:40:49 DEBUG BasicTypeRegistry - Adding type registration imm_serializable -> org.hibernate.type.BasicTypeReference@6fa69af7
+2024-11-19 18:40:49 WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-11-19 18:40:49 INFO  pooling - HHH10001005: Loaded JDBC driver class: com.filemaker.jdbc.Driver
+2024-11-19 18:40:49 INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:filemaker://192.168.0.24/Contacts]
+2024-11-19 18:40:49 INFO  pooling - HHH10001001: Connection properties: {password=****, user=admin}
+2024-11-19 18:40:49 INFO  pooling - HHH10001003: Autocommit mode: false
+2024-11-19 18:40:49 INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
+2024-11-19 18:40:50 DEBUG JdbcTypeRegistry - addDescriptor(NCharTypeDescriptor) replaced previous registration(CharTypeDescriptor)
+2024-11-19 18:40:50 DEBUG JdbcTypeRegistry - addDescriptor(NVarcharTypeDescriptor) replaced previous registration(VarcharTypeDescriptor)
+2024-11-19 18:40:50 DEBUG JdbcTypeRegistry - addDescriptor(LongNVarcharTypeDescriptor) replaced previous registration(LongVarcharTypeDescriptor)
+2024-11-19 18:40:50 DEBUG JdbcTypeRegistry - addDescriptor(NClobTypeDescriptor(DEFAULT)) replaced previous registration(ClobTypeDescriptor(DEFAULT))
+2024-11-19 18:40:50 DEBUG JdbcTypeRegistry - addDescriptor(2005, ClobTypeDescriptor(STREAM_BINDING)) replaced previous registration(ClobTypeDescriptor(DEFAULT))
+2024-11-19 18:40:50 DEBUG BasicTypeRegistry - Adding type registration org.hibernate.type.DurationType -> basicType@1(java.time.Duration,3015)
+2024-11-19 18:40:50 DEBUG BasicTypeRegistry - Adding type registration Duration -> basicType@1(java.time.Duration,3015)
+2024-11-19 18:40:50 DEBUG BasicTypeRegistry - Adding type registration java.time.Duration -> basicType@1(java.time.Duration,3015)
+2024-11-19 18:40:50 DEBUG BasicTypeRegistry - Adding type registration org.hibernate.type.OffsetDateTimeType -> basicType@2(java.time.OffsetDateTime,3003)
+2024-11-19 18:40:50 DEBUG BasicTypeRegistry - Adding type registration OffsetDateTime -> basicType@2(java.time.OffsetDateTime,3003)
+2024-11-19 18:40:50 DEBUG BasicTypeRegistry - Adding type registration java.time.OffsetDateTime -> basicType@2(java.time.OffsetDateTime,3003)
+2024-11-19 18:40:50 DEBUG BasicTypeRegistry - Adding type registration org.hibernate.type.ZonedDateTimeType -> basicType@3(java.time.ZonedDateTime,3003)
+2024-11-19 18:40:50 DEBUG BasicTypeRegistry - Adding type registration ZonedDateTime -> basicType@3(java.time.ZonedDateTime,3003)
+2024-11-19 18:40:50 DEBUG BasicTypeRegistry - Adding type registration java.time.ZonedDateTime -> basicType@3(java.time.ZonedDateTime,3003)
+2024-11-19 18:40:50 DEBUG BasicTypeRegistry - Adding type registration org.hibernate.type.OffsetTimeType -> basicType@4(java.time.OffsetTime,3007)
+2024-11-19 18:40:50 DEBUG BasicTypeRegistry - Adding type registration OffsetTime -> basicType@4(java.time.OffsetTime,3007)
+2024-11-19 18:40:50 DEBUG BasicTypeRegistry - Adding type registration java.time.OffsetTime -> basicType@4(java.time.OffsetTime,3007)
+2024-11-19 18:40:50 DEBUG TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@2f521c4] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@4afbb6c2]
+2024-11-19 18:40:51 DEBUG TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@2f521c4] to SessionFactoryImplementor [org.hibernate.internal.SessionFactoryImpl@48e74764]
+2024-11-19 18:40:51 TRACE TypeConfiguration$Scope - Handling #sessionFactoryCreated from [org.hibernate.internal.SessionFactoryImpl@48e74764] for TypeConfiguration
+2024-11-19 18:40:51 INFO  HibernateUtilTest - SessionFactory created at BeforeAll
+2024-11-19 18:40:51 DEBUG SQL - 
+    /* insert for
+        es.ntwk.filemaker.hibernate.dialect.test.Contact */insert 
+    into
+        contact (email, name) 
+    values
+        (?, ?)
+2024-11-19 18:40:51 TRACE bind - binding parameter (1:VARCHAR) <- [smith@example.com]
+2024-11-19 18:40:51 TRACE bind - binding parameter (2:VARCHAR) <- [smithww]
+2024-11-19 18:40:51 DEBUG SQL - 
+    select
+        max(id) 
+    from
+        contact
+2024-11-19 18:40:51 DEBUG SQL - 
+    /* insert for
+        es.ntwk.filemaker.hibernate.dialect.test.Contact */insert 
+    into
+        contact (email, name) 
+    values
+        (?, ?)
+2024-11-19 18:40:51 TRACE bind - binding parameter (1:VARCHAR) <- [abc@example.com]
+2024-11-19 18:40:51 TRACE bind - binding parameter (2:VARCHAR) <- [abc]
+2024-11-19 18:40:51 DEBUG SQL - 
+    select
+        max(id) 
+    from
+        contact
+2024-11-19 18:40:51 DEBUG SQL - 
+    select
+        c1_0.id,
+        c1_0.email,
+        c1_0.name 
+    from
+        contact c1_0 
+    where
+        c1_0.id=?
+2024-11-19 18:40:51 TRACE bind - binding parameter (1:BIGINT) <- [5]
+2024-11-19 18:40:51 DEBUG SQL - 
+    select
+        c1_0.id,
+        c1_0.email,
+        c1_0.name 
+    from
+        contact c1_0 
+    where
+        c1_0.id=?
+2024-11-19 18:40:51 TRACE bind - binding parameter (1:BIGINT) <- [5]
+2024-11-19 18:40:51 DEBUG SQL - 
+    /* dynamic native SQL query */ SELECT
+        id,
+        email,
+        name 
+    FROM
+        contact 
+    OFFSET
+        0 ROW 
+    FETCH
+        FIRST 5 ROW ONLY
+2024-11-19 18:40:51 DEBUG SQL - 
+    /* 
+from
+    Contact */ select
+        c1_0.id,
+        c1_0.email,
+        c1_0.name 
+    from
+        contact c1_0
+2024-11-19 18:40:52 INFO  HibernateUtilTest - test12 - testPagedList
+2024-11-19 18:40:52 DEBUG SQL - 
+    /* 
+FROM
+    Contact */ select
+        c1_0.id,
+        c1_0.email,
+        c1_0.name 
+    from
+        contact c1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+2024-11-19 18:40:52 WARN  SqlExceptionHelper - SQL Error: 27026, SQLState: 08007
+2024-11-19 18:40:52 ERROR SqlExceptionHelper - [FileMaker][FileMaker JDBC] FQL0001/(1:81): There is an error in the syntax of the query.
+2024-11-19 18:40:52 TRACE TypeConfiguration$Scope - Handling #sessionFactoryClosed from [org.hibernate.internal.SessionFactoryImpl@48e74764] for TypeConfiguration
+2024-11-19 18:40:52 DEBUG TypeConfiguration$Scope - Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@45cb5307] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@48e74764]
+2024-11-19 18:40:52 INFO  pooling - HHH10001008: Cleaning up connection pool [jdbc:filemaker://192.168.0.24/Contacts]
+2024-11-19 18:40:52 INFO  HibernateUtilTest - SessionFactory destroyed at AfterAll

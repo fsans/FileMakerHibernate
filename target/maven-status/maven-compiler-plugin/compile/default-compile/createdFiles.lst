@@ -1,0 +1,6 @@
+es/ntwk/filemaker/hibernate/dialect/identity/FileMakerIdentityColumnSupport.class
+es/ntwk/filemaker/hibernate/dialect/pagination/FileMakerOffsetFetchLimitHandler.class
+es/ntwk/filemaker/hibernate/dialect/FileMakerDialect.class
+es/ntwk/filemaker/hibernate/dialect/FileMakerDialectLegacy.class
+es/ntwk/filemaker/hibernate/dialect/pagination/FileMakerLimitHandler.class
+es/ntwk/filemaker/hibernate/dialect/FileMakerSqlAstTranslator.class
