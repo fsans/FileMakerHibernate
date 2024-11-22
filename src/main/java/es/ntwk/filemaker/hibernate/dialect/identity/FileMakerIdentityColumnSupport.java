@@ -1,9 +1,14 @@
 package es.ntwk.filemaker.hibernate.dialect.identity;
 
 import org.hibernate.dialect.identity.IdentityColumnSupportImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import es.ntwk.filemaker.hibernate.dialect.pagination.FileMakerLimitHandler;
 
 public class FileMakerIdentityColumnSupport extends IdentityColumnSupportImpl {
 
+    private static final Logger logger = LoggerFactory.getLogger(FileMakerLimitHandler.class);
     public static final FileMakerIdentityColumnSupport INSTANCE = new FileMakerIdentityColumnSupport();
 
     @Override

@@ -16,18 +16,6 @@ public class FileMakerLimitHandler extends AbstractLimitHandler {
 	 *
 	 * Fetch syntax
 	 * FETCH FIRST [ n [ PERCENT ] ] { ROWS | ROW } {ONLY | WITH TIES } ]
-	 *
-	 * 
-	 * 
-	 * this is quite diferent from OffsetFetchLimitHandler
-	 * 
-	 * [ORDER BY ...]
-	 * [OFFSET n {ROW|ROWS}]
-	 * [FETCH {FIRST|NEXT} m {ROW|ROWS} ONLY] -> must be FETCH FIRST [ n [ PERCENT ]
-	 * ] { ROWS | ROW } {ONLY | WITH TIES } ]
-	 * [FOR {UPDATE|READ ONLY|FETCH ONLY}] -> must be FOR UPDATE [OF
-	 * column_expressions]
-	 * [WITH {RR|RS|CS|UR}] -> must be replaced by WITH TIES
 	 * 
 	 */
 

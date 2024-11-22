@@ -5,102 +5,106 @@ import java.sql.Types;
 import org.hibernate.dialect.DatabaseVersion;
 import org.hibernate.dialect.Dialect;
 import org.hibernate.dialect.pagination.LimitHandler;
+import org.hibernate.dialect.pagination.OffsetFetchLimitHandler;
 import org.hibernate.engine.jdbc.dialect.spi.DialectResolutionInfo;
 import org.hibernate.sql.ast.SqlAstTranslatorFactory;
 import org.hibernate.sql.ast.spi.StandardSqlAstTranslatorFactory;
 import org.hibernate.type.descriptor.jdbc.JdbcType;
 import org.hibernate.type.descriptor.jdbc.spi.JdbcTypeRegistry;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import es.ntwk.filemaker.hibernate.dialect.identity.FileMakerIdentityColumnSupport;
-import es.ntwk.filemaker.hibernate.dialect.pagination.FileMakerLimitHandler;
 
-/**
- * An SQL dialect for FileMaker.
- *
- * @author Francesc Sans
- */
+
+/* An SQL dialect for FileMaker.
+ 
+@author Francesc Sans
+
+WARNING: FileMaker JDBC driver does not support:
+
+- SAVEPOINT statements
+- retrieval of auto-generated keys (TO BE REVIEWED)
+- passing parameters to a callable statement object by name 
+- holdable cursors
+- retrieving and updating the object referenced by a Ref object
+- updating of columns containing CLOB, ARRAY, and REF data types 
+- Boolean data type
+- DATALINK data type
+- transform groups and type mapping
+- relationships between the JDBC SPI and the Connector architecture
+
+
+Data Types: (filemaler - JDBC)
+text 		java.sql.Types.VARCHAR
+number 		java.sql.Types.DOUBLE
+date 		java.sql.Types.DATE
+time 		java.sql.Types.TIME
+timestamp 	java.sql.Types.TIMESTAMP
+container 	java.sql.Types.BLOB
+
+supports standar ANSI pagination with: OFFSET n ROW|ROWS / FETCH FIRST n ROW|ROWS ONLY (and FOR UPDATE and SORT BY ... WITH TIES)
+
+
+*/
 
 public class FileMakerDialect extends Dialect {
+
+    private static final Logger logger = LoggerFactory.getLogger(FileMakerDialect.class);
 
     private static final DatabaseVersion DEFAULT_VERSION = DatabaseVersion.make(21, 0);
 
     public FileMakerDialect() {
         this(DEFAULT_VERSION);
-        
     }
 
     public FileMakerDialect(DatabaseVersion version) {
         super(version);
-        System.out.println("FileMakerDialect being initialized fase 2!");
     }
 
     public FileMakerDialect(DialectResolutionInfo info) {
         // super(info);
         this(info.makeCopyOrDefault(DEFAULT_VERSION));
         registerKeywords(info);
-        System.out.println("FileMakerDialect being initialized fase 3!");
     }
 
+
     @Override
-    public JdbcType resolveSqlTypeDescriptor(
-            String columnTypeName,
-            int jdbcTypeCode,
-            int precision,
-            int scale,
-
-            /*
-             * driver supported data types:
-             * "numeric", "decimal", "int", "varchar", "character varying", "blob",
-             * "varbinary", "longvarbinary", "binary varying", "date", "time", "timestamp"
-             * 2, 3, 4, 12, 12, -2, -2, -2, -2, 91, 92, 93
-             */
-            JdbcTypeRegistry jdbcTypeRegistry) {
-
-        switch (jdbcTypeCode) {
-
-            case Types.NUMERIC: // 2 (fm native "Number")
-            case Types.DECIMAL: // 3
-            case Types.INTEGER: // 4
-                jdbcTypeCode = Types.NUMERIC;
-                break;
-
-            case Types.VARCHAR: // 12
-            case Types.LONGVARCHAR: // -1 (must be a character varying !!!)
-                jdbcTypeCode = Types.VARCHAR;
-                break;
-
-            case Types.BLOB: // 2004
-            case Types.VARBINARY: // -1
-            case Types.LONGVARBINARY: // -4
-                // case Types.BINARY-VARYING: (must be a binary varying !!!)
-                jdbcTypeCode = Types.BINARY;
-                break;
-
-            case Types.DATE: // 91
-                jdbcTypeCode = Types.DATE;
-                break;
-
-            case Types.TIME: // 92
-                jdbcTypeCode = Types.TIME;
-                break;
-
-            case Types.TIMESTAMP: // 93
-                jdbcTypeCode = Types.TIMESTAMP;
-                break;
-
+    protected String columnType(int sqlTypeCode) {
+        switch (sqlTypeCode) {
+            case Types.NUMERIC:
+            case Types.DECIMAL:
+            case Types.INTEGER:
+                return "numeric"; // Maps to FileMaker's numeric type
+    
+            case Types.VARCHAR:
+            case Types.LONGVARCHAR:
+            case Types.CHAR:
+                return "varchar"; // Maps to FileMaker's varchar type
+    
+            case Types.BLOB:
+            case Types.VARBINARY:
+            case Types.LONGVARBINARY:
+                return "blob"; // Maps to FileMaker's blob type
+    
+            case Types.DATE:
+                return "date"; // Maps to FileMaker's date type
+    
+            case Types.TIME:
+                return "time"; // Maps to FileMaker's time type
+    
+            case Types.TIMESTAMP:
+                return "timestamp"; // Maps to FileMaker's timestamp type
+    
             default:
-                jdbcTypeCode = Types.VARCHAR;
+                return super.columnType( sqlTypeCode ); // Return a default type or handle unsupported types
         }
-        return super.resolveSqlTypeDescriptor(
-                columnTypeName,
-                jdbcTypeCode,
-                precision,
-                scale,
-                jdbcTypeRegistry);
     }
 
-    @Override
+
+   @Override
     public LimitHandler getLimitHandler() {
-        return FileMakerLimitHandler.INSTANCE;
+        logger.debug("getLimitHandler called, returning OffsetFetchLimitHandler");
+        return new OffsetFetchLimitHandler(false);
     }
 
     @Override
@@ -162,15 +166,25 @@ public class FileMakerDialect extends Dialect {
     public boolean supportsUnionAll() {
         return false;
     }
-
-    // New method required for Hibernate 6
+    // custom FileMaker AST translator
+    /* @Override
+	public SqlAstTranslatorFactory getSqlAstTranslatorFactory() {
+		return new StandardSqlAstTranslatorFactory() {
+			@Override
+			protected <T extends JdbcOperation> SqlAstTranslator<T> buildTranslator(
+					SessionFactoryImplementor sessionFactory, Statement statement) {
+                        logger.debug("statement for FileMakerSqlAstTranslator: {}", statement);
+				return new FileMakerSqlAstTranslator<>( sessionFactory, statement );
+			}
+		};
+	} */
+    
     @Override
     public SqlAstTranslatorFactory getSqlAstTranslatorFactory() {
-        // return super.getSqlAstTranslatorFactory();
+        //return super.getSqlAstTranslatorFactory();
         return new StandardSqlAstTranslatorFactory();
     }
 
-    // New method required for Hibernate 6
     /*
      * @Override
      * public void initializeFunctionRegistry(QueryEngine queryEngine) {
